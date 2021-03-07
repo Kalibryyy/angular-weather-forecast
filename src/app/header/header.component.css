@@ -16,9 +16,35 @@
   margin-right: 20px;
 }
 
+.header__link:focus {
+  outline: none;
+  border: 1px solid #59636c;
+}
+
+.header__link:hover {
+  cursor: pointer;
+  opacity: .8;
+  transition: opacity .3s linear;
+}
+
 .logo {
   margin: 0;
+}
+
+.logo__link {
   color: #fff;
   font-family: Helvetica,Arial,sans-serif;
   font-weight: 300;
+  text-decoration: none;
+}
+
+.logo__link:focus {
+  outline: none;
+  border: 1px solid #59636c;
+}
+
+.logo__link:hover {
+  cursor: pointer;
+  opacity: .8;
+  transition: opacity .3s linear;
 }
