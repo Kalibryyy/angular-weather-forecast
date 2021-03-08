@@ -1,4 +1,13 @@
-<app-card
-  *ngFor="let iterCard of russia"
-  [card]="iterCard"
-></app-card>
+<main>
+  <select [formControl]="selectedCountriesControl">
+    <option *ngFor="let country of countries" [ngValue]="country">
+      {{country.name}}
+    </option>
+  </select>
+  <p>Select value: {{ selectedCountriesControl.value.name }}
+  <app-card
+    *ngFor="let iterCard of norway"
+    [card]="iterCard"
+  ></app-card>
+</main>
+

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Card} from '../weather-forecast/weather-forecast.component';
 
 @Component({
@@ -6,7 +6,11 @@ import {Card} from '../weather-forecast/weather-forecast.component';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input()
   card!: Card;
+
+  ngOnInit(): void {}
+
+  // @Input() card: Card;
 }
