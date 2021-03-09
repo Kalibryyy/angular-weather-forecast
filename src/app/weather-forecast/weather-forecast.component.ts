@@ -62,9 +62,9 @@ export class WeatherForecastComponent {
     precipitation: '7 m/s',
   }];
 
-  selectedCountriesControl = new FormControl(this.countries[1]);
+  selectedCountriesControl = new FormControl(this.countries[0]);
 
-  selectedCards = [];
+  selectedCards = this.cards.filter(item => item.country === this.countries[0].name);
 
   handleChange(event: any) {
     console.log(event.value.name);
