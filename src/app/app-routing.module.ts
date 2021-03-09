@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {WeatherForecastComponent} from './weather-forecast/weather-forecast.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: WeatherForecastComponent, pathMatch: 'full'},
+  {path: ':country', component: WeatherForecastComponent},
+  {path: '**', redirectTo: ''}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,4 +1,5 @@
 <main>
+  <a [routerLink]="country"></a>
   <select [formControl]="selectedCountriesControl" (change)="handleChange(selectedCountriesControl)">
     <option *ngFor="let country of countries" [ngValue]="country">
       {{country.name}}

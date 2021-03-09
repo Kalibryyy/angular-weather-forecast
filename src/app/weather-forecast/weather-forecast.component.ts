@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 export interface Card {
   country: string;
@@ -19,7 +20,14 @@ export interface Selector {
   templateUrl: './weather-forecast.component.html',
   styleUrls: ['./weather-forecast.component.css']
 })
+// implements OnInit
 export class WeatherForecastComponent {
+  // constructor(
+  //   private route: ActivatedRoute,
+  // ) {}
+
+  constructor(private router: Router){}
+
   countries: Selector[] = [{
     name: 'russia'
   },
@@ -66,10 +74,22 @@ export class WeatherForecastComponent {
 
   selectedCards = this.cards.filter(item => item.country === this.countries[0].name);
 
-  handleChange(event: any) {
-    console.log(event.value.name);
+  country = '';
+
+  // ngOnInit(): any {
+  //   this.route.queryParams.subscribe(params => {
+  //     this.country = params.country;
+  //   });
+  // }
+
+  handleChange(event: any): any {
     const selectedCards: any = this.cards.filter(item => item.country === event.value.name);
-    console.log(selectedCards);
     this.selectedCards = selectedCards;
+    // this.country = event.value.name;
+    // console.log(this.country);
+    if (event.value.name) {
+      this.router.navigate([event.value.name]);
+    }
+    return false;
   }
 }
