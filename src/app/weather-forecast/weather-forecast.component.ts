@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 export interface Card {
+  country: string;
   city: string;
   temperature: string;
   pressure: number;
@@ -18,7 +19,7 @@ export interface Selector {
   templateUrl: './weather-forecast.component.html',
   styleUrls: ['./weather-forecast.component.css']
 })
-export class WeatherForecastComponent{
+export class WeatherForecastComponent {
   countries: Selector[] = [{
     name: 'russia'
   },
@@ -28,7 +29,8 @@ export class WeatherForecastComponent{
     {
       name: 'usa'
     }, ];
-  russia: Card[] = [{
+  cards: Card[] = [{
+    country: 'russia',
     city: 'Saint-Petersburg',
     temperature: '-12',
     pressure: 1032,
@@ -36,20 +38,23 @@ export class WeatherForecastComponent{
     precipitation: '7 m/s',
   },
     {
+      country: 'russia',
       city: 'Moscow',
       temperature: '+2',
       pressure: 1032,
       wind: '35%',
       precipitation: '8 m/s',
-    }, ];
-  norway: Card[] = [{
+    },
+  {
+    country: 'norway',
     city: 'Oslo',
     temperature: '-1',
     pressure: 1032,
     wind: '32%',
     precipitation: '7 m/s',
-  }];
-  usa: Card[] = [{
+  },
+  {
+    country: 'usa',
     city: 'Miami',
     temperature: '+20',
     pressure: 1032,
@@ -57,5 +62,14 @@ export class WeatherForecastComponent{
     precipitation: '7 m/s',
   }];
 
-  selectedCountriesControl = new FormControl();
+  selectedCountriesControl = new FormControl(this.countries[1]);
+
+  selectedCards = [];
+
+  handleChange(event: any) {
+    console.log(event.value.name);
+    const selectedCards: any = this.cards.filter(item => item.country === event.value.name);
+    console.log(selectedCards);
+    this.selectedCards = selectedCards;
+  }
 }
