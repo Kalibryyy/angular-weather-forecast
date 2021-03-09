@@ -1,14 +1,19 @@
 <main>
-  <a [routerLink]="country"></a>
-  <select [formControl]="selectedCountriesControl" (change)="handleChange(selectedCountriesControl)">
-    <option *ngFor="let country of countries" [ngValue]="country">
-      {{country.name}}
-    </option>
-  </select>
-  <app-card
-    *ngFor="let iterCard of selectedCards"
-    [card]="iterCard"
-  ></app-card>
+  <section class="country-selection">
+    <select class="country-selection__selector" [formControl]="selectedCountriesControl" (change)="handleChange(selectedCountriesControl)">
+      <option *ngFor="let country of countries" [ngValue]="country">
+        {{country.name}}
+      </option>
+    </select>
+  </section>
+  <section class="cards">
+    <ul class="cards__list">
+
+        <app-card
+          *ngFor="let iterCard of selectedCards"
+          [card]="iterCard"
+        ></app-card>
+    </ul>
+  </section>
 </main>
-<!-- роутинг, стили для app-card, ul и li теги и стили -->
 

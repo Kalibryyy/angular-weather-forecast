@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
 
 export interface Card {
   country: string;
@@ -26,35 +27,51 @@ export class WeatherForecastComponent {
   //   private route: ActivatedRoute,
   // ) {}
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private location: Location){}
 
   countries: Selector[] = [{
-    name: 'russia'
+    name: 'Russia'
   },
     {
-      name: 'norway'
+      name: 'Norway'
     },
     {
-      name: 'usa'
+      name: 'USA'
     }, ];
   cards: Card[] = [{
-    country: 'russia',
+    country: 'Russia',
     city: 'Saint-Petersburg',
-    temperature: '-12',
+    temperature: '-5',
     pressure: 1032,
     wind: '32%',
     precipitation: '7 m/s',
   },
     {
-      country: 'russia',
+      country: 'Russia',
       city: 'Moscow',
-      temperature: '+2',
+      temperature: '-2',
+      pressure: 1032,
+      wind: '35%',
+      precipitation: '8 m/s',
+    },
+    {
+      country: 'Russia',
+      city: 'Yekaterinburg',
+      temperature: '-10',
+      pressure: 1032,
+      wind: '35%',
+      precipitation: '8 m/s',
+    },
+    {
+      country: 'Russia',
+      city: 'Kazan',
+      temperature: '-7',
       pressure: 1032,
       wind: '35%',
       precipitation: '8 m/s',
     },
   {
-    country: 'norway',
+    country: 'Norway',
     city: 'Oslo',
     temperature: '-1',
     pressure: 1032,
@@ -62,7 +79,7 @@ export class WeatherForecastComponent {
     precipitation: '7 m/s',
   },
   {
-    country: 'usa',
+    country: 'USA',
     city: 'Miami',
     temperature: '+20',
     pressure: 1032,

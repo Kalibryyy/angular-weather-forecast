@@ -1,0 +1,47 @@
+.country-selection {
+  display: flex;
+  justify-content: center;
+  background-color: #b6bcbf;
+  min-height: 30px;
+}
+
+.country-selection__selector {
+  height: 20px;
+  align-self: center;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.country-selection__selector:focus {
+  outline: none;
+  border: 2px solid #4682b4;
+}
+
+.cards {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .cards {max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cards {max-width: 100%;
+  }
+}
+
+.cards__list{
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 660px) {
+  .cards__list {
+    justify-content: center;
+  }
+}

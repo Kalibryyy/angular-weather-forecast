@@ -11,6 +11,4 @@ export class CardComponent implements OnInit {
   card!: Card;
 
   ngOnInit(): void {}
-
-  // @Input() card: Card;
 }

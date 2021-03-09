@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CardComponent} from './card/card.component';
 import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
@@ -14,7 +13,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppComponent,
     CardComponent,
     HeaderComponent,
-    MainComponent,
     WeatherForecastComponent
   ],
   imports: [
