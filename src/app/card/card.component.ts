@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Card} from '../weather-forecast/weather-forecast.component';
+import {Card} from '../models/card-model';
 
 @Component({
   selector: 'app-card',

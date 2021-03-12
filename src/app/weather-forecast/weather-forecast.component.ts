@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { WeatherService } from '../wether.service';
+import { Card } from '../models/card-model';
 
 @Component({
   selector: 'app-weather-forecast',
@@ -10,23 +11,32 @@ import { WeatherService } from '../wether.service';
   styleUrls: ['./weather-forecast.component.css']
 })
 
-export class WeatherForecastComponent {
+export class WeatherForecastComponent implements OnInit {
   constructor(
     private router: Router,
-    private service: WeatherService
+    private activateRoute: ActivatedRoute,
+    private service: WeatherService,
   ){}
 
-  selectedCountriesControl = new FormControl(this.service.getCountries()[0]);
+  countries = this.service.getCountries();
 
-  selectedCards = this.service.cards.filter(item => item.country === this.service.getCountries()[0].name);
+  country = this.countries[0];
+
+  selectedCountriesControl = new FormControl('Russia');
+
+  selectedCards: Card[] | undefined;
+
+  ngOnInit(): any {
+    this.getCountries(this.activateRoute.snapshot.paramMap.get('country') || this.countries[0].name);
+  }
 
   handleChange(event: any): any {
+    this.getCountries(event.value.name);
     this.router.navigate([event.value.name]);
-    // // const selectedCards: any = this.cards.filter(item => item.country === event.value.name);
-    // // this.selectedCards = selectedCards;
-    // if (event.value.name) {
-    //   this.router.navigate([event.value.name]);
-    // }
-    // return false;
+  }
+
+  getCountries(country: string): void {
+    this.country = this.service.getCountry(country);
+    this.selectedCards = this.service.cards.filter(item => item.country === this.country.name);
   }
 }
