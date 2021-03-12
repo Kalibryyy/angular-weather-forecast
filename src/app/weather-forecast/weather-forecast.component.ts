@@ -22,7 +22,7 @@ export class WeatherForecastComponent implements OnInit {
 
   country = this.countries[0];
 
-  selectedCountriesControl = new FormControl('Russia');
+  selectedCountriesControl = new FormControl(this.countries[0].name);
 
   selectedCards: Card[] | undefined;
 
